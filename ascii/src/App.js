@@ -8,7 +8,7 @@ function App() {
   const [asciiData, setAsciiData] = useState('');
 
   const handleImageUpload = (fileData) => {
-    const gridWidth = 80; // Adjust this value to control the width of the ASCII grid
+    const gridWidth = 800; // Adjust this value to control the width of the ASCII grid
 
     asciiConverter(fileData, gridWidth)
       .then((ascii) => {
