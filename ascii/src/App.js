@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import UploadImage from './UploadImage';
+import AsciiImage from './AsciiImage';
+import asciiConverter from './asciiConverter';
 
 function App() {
+  const [asciiData, setAsciiData] = useState('');
+
+  const handleImageUpload = (fileData) => {
+    const ascii = asciiConverter(fileData);
+    setAsciiData(ascii);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ASCII Image Converter</h1>
+      <UploadImage onImageUpload={handleImageUpload} />
+      <AsciiImage asciiData={asciiData} />
     </div>
   );
 }
