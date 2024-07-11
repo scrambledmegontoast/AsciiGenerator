@@ -1,3 +1,4 @@
+// AsciiImage.js
 import React from 'react';
 
 function AsciiImage({ asciiData }) {

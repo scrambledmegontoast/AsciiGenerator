@@ -19,13 +19,17 @@ function App() {
       });
   };
 
+  const handleClear = () => {
+    setAsciiData('');
+  };
+
   return (
     <div className="App">
       <h1>ASCII Image Converter</h1>
       <UploadImage onImageUpload={handleImageUpload} />
       {asciiData && (
         <div>
-          <button onClick={() => setAsciiData('')}>Clear</button>
+          <button onClick={handleClear}>Clear</button>
           <AsciiImage asciiData={asciiData} />
         </div>
       )}

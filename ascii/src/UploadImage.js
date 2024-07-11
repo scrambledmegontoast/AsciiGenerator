@@ -1,3 +1,4 @@
+// UploadImage.js
 import React, { useState } from 'react';
 
 function UploadImage({ onImageUpload }) {
