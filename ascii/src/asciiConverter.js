@@ -1,11 +1,10 @@
-
+// asciiConverter.js
 const asciiConverter = (fileData, width) => {
     return new Promise((resolve, reject) => {
       const image = new Image();
       image.src = fileData;
   
       image.onload = () => {
-        console.log("Image loaded successfully"); // Debugging line
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         context.drawImage(image, 0, 0);
@@ -25,7 +24,7 @@ const asciiConverter = (fileData, width) => {
   const generateAsciiGrid = (imageData, imageWidth, gridWidth) => {
     const asciiCharacters = '@%#*+=-:. ';
     const brightnessRange = 255 / asciiCharacters.length;
-    const aspectRatio = 20; // Adjust this value to control the aspect ratio of the ASCII image
+    const aspectRatio = 2; // Adjust this value to control the aspect ratio of the ASCII image
   
     const pixelWidth = Math.ceil(imageWidth / gridWidth);
     const pixelHeight = Math.ceil(pixelWidth * aspectRatio);

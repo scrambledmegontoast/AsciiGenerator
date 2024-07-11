@@ -23,7 +23,7 @@ function UploadImage({ onImageUpload }) {
     <div className="UploadImage">
       <h2>Upload Image</h2>
       <input type="file" accept="image/*" onChange={handleFileChange} />
-      <button onClick={handleUpload}>*Unknown function*</button>
+      <button onClick={handleUpload}>Convert to ASCII</button>
     </div>
   );
 }
