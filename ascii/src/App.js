@@ -27,6 +27,7 @@ function App() {
     <div className="App">
       <h1>ASCII Image Converter</h1>
       <UploadImage onImageUpload={handleImageUpload} />
+      
       {asciiData && (
         <div>
           <button onClick={handleClear}>Clear</button>

@@ -5,7 +5,9 @@ const asciiConverter = (fileData, width) => {
       image.src = fileData;
   
       image.onload = () => {
+        console.log("Image loaded successfully");
         const canvas = document.createElement('canvas');
+
         const context = canvas.getContext('2d');
         context.drawImage(image, 0, 0);
   
@@ -58,5 +60,7 @@ const asciiConverter = (fileData, width) => {
   
     return asciiData;
   };
+
+  
   
   export default asciiConverter;
