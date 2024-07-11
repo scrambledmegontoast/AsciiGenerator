@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import UploadImage from './UploadImage';
 import AsciiImage from './AsciiImage';
@@ -7,15 +8,27 @@ function App() {
   const [asciiData, setAsciiData] = useState('');
 
   const handleImageUpload = (fileData) => {
-    const ascii = asciiConverter(fileData);
-    setAsciiData(ascii);
+    const gridWidth = 80; // Adjust this value to control the width of the ASCII grid
+
+    asciiConverter(fileData, gridWidth)
+      .then((ascii) => {
+        setAsciiData(ascii);
+      })
+      .catch((error) => {
+        console.error('Error converting image to ASCII:', error);
+      });
   };
 
   return (
     <div className="App">
       <h1>ASCII Image Converter</h1>
       <UploadImage onImageUpload={handleImageUpload} />
-      <AsciiImage asciiData={asciiData} />
+      {asciiData && (
+        <div>
+          <button onClick={() => setAsciiData('')}>Clear</button>
+          <AsciiImage asciiData={asciiData} />
+        </div>
+      )}
     </div>
   );
 }
